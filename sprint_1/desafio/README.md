@@ -4,7 +4,6 @@ baixar o aquivo .csv e a criação do diretorio ecommerce e mover o aquivo para 
 
 logo em seguida usando o comando **touch** criamos o arquivo **processamento_de_vendas.sh**
 
-[criando o processamento_de_vendas.sh](file/C:/Users/cupun/Downloads/criação_do_arquivo_processamento_de_vendas.pdf)
 
 e dentro do arquivo .sh ja criado comecei a codar dentro do VS code para as demais tarefas, primeiro coisa que fiz foi 
 guardar tudo dentro de variáveis.
@@ -17,9 +16,9 @@ em seguida geramos um relatorio.txt que é salvo as seguintes informações:
 3. Extrai a data da última venda
 4. exibe quantidade total de itens diferentes vendidos 
 5. imprime as primeiras 10 linhas do arquivo de backup 
-   
-E no final da linha do código  tudo isso é incluido no relatorio.txt
+E no final da linha do código  tudo isso é incluido no relatorio.
 
+![imagen qualquer](PB-MATEUS-NUNES/sprint_1/evidencias/re)
 
 logo em seguida voltamos a backup e compactamos o arquivo.csv para arquivo.zip
 
@@ -30,3 +29,10 @@ configuramos o mesmo para que durante 4 dias as 15:27 o arquivo.sh criasse o rel
 
 passado os 4 dias criamos o **consolidador_de_vendas.sh**
 e dentro dele configurei para criar um relatorio_final.txt que junta todos os outros relatorios em um só.
+
+Claro tive varios erros e acertos pois havian coisas que desconheciam, porém com bastante pesquisa consegui finalizar o desafio.
+
+### obervação
+
+**No README da SPRINT encontra-se todas as imagens de cada passo**
+
