@@ -4,7 +4,7 @@ baixar o aquivo .csv e a criação do diretorio ecommerce e mover o aquivo para 
 
 logo em seguida usando o comando **touch** criamos o arquivo **processamento_de_vendas.sh**
 
-[criando o processamento_de_vendas.sh](Downloads/criação_do_arquivo_processamento_de_vendas.pdf)
+[criando o processamento_de_vendas.sh](Downloads/criacao_do_arquivo_processamento_de_vendas.pdf)
 
 e dentro do arquivo .sh ja criado comecei a codar dentro do VS code para as demais tarefas, primeiro coisa que fiz foi 
 guardar tudo dentro de variáveis.
