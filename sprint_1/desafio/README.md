@@ -18,7 +18,6 @@ em seguida geramos um relatorio.txt que é salvo as seguintes informações:
 5. imprime as primeiras 10 linhas do arquivo de backup 
 E no final da linha do código  tudo isso é incluido no relatorio.
 
-![imagen qualquer](PB-MATEUS-NUNES/sprint_1/evidencias/re)
 
 logo em seguida voltamos a backup e compactamos o arquivo.csv para arquivo.zip
 
