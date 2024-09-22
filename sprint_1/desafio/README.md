@@ -2,7 +2,9 @@
 Para começar o desafio, a primeira coisa que fiz foi a preparação como pedido
 baixar o aquivo .csv e a criação do diretorio ecommerce e mover o aquivo para o diretorio criado.
 
-logo em seguida usando o comando **touch** criamos o arquivo **processamento_de_vendas.sh** 
+logo em seguida usando o comando **touch** criamos o arquivo **processamento_de_vendas.sh**
+ 
+![criando o processamento_de_vendas.sh](/mnt/c/PB-MATEUS-NUNES/sprint1/evidencias/criação_do_arquivo_processamento_de_vendas.jpg)
 
 e dentro do arquivo .sh ja criado comecei a codar dentro do VS code para as demais tarefas, primeiro coisa que fiz foi 
 guardar tudo dentro de variáveis.
