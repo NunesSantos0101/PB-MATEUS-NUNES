@@ -22,7 +22,7 @@ cp "$vendas_dir/dados_de_vendas.csv" "$backup_file"
     echo -n "Data do última venda: "
     tail -n 2 "$backup_file" | head -n 1 | awk -F, '{print $5}'
     
-    echo -n "Quantidade total de itens vendidos: "
+    echo -n "Quantidade total de itens diferentes vendidos: "
     awk -F, 'NR>1 {sum += $3} END {print sum}' "$backup_file"
     
     awk 'NR > 1 {print $0}' "$backup_file" | head -n 10

@@ -1,0 +1,24 @@
+# Desafio
+Para começar o desafio, a primeira coisa que fiz foi a preparação como pedido
+baixar o aquivo .csv e a criação do diretorio ecommerce e mover o aquivo para o diretorio criado.
+
+logo em seguida usando o comando **touch** criamos o arquivo **processamento_de_vendas.sh** 
+
+e dentro do arquivo .sh ja criado comecei a codar para as demais tarefas, primeiro coisa que fiz foi 
+guardar tudo dentro de variáveis.
+
+e em seguida criei o diretorio vendas, movi o arquivo.csv para dentro dele, criei o subdiretorio backup e dentro de backup movi e renomeei o arquivo.csv como foi pedido.
+
+em seguida geramos um relatorio.txt que é salvo as seguintes informações:
+1. Exibe a data e hora atuais
+2. Extrai a data da primeira venda 
+3. Extrai a data da última venda
+4. exibe quantidade total de itens diferentes vendidos 
+5. imprime as primeiras 10 linhas do arquivo de backup 
+   
+E no final da linha do código  tudo isso é incluido no relatorio.txt
+
+
+logo em seguida voltamos a backup e compactamos o arquivo.csv para arquivo.zip
+
+Depois de tudo isso feito removemos os arquivos .csv de backup e vendas.

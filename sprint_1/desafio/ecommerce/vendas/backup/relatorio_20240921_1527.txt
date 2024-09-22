@@ -1,7 +1,7 @@
 Data: 2024/09/21 15:27
 Data da 1° venda: 01/01/2023
 Data do última venda: 30/03/2023
-Quantidade total de itens vendidos: 408
+Quantidade total de itens diferentes vendidos: 408
 1,camiseta,2,29.90,01/01/2023
 2,calça,5,80.00,02/01/2023
 3,sapato,3,100.00,03/01/2023
