@@ -27,7 +27,7 @@ o que me levou a pesquisar e ultilizar daquela ferramenta para poder concluir o 
 ![variaveis](evidencias/guardando_tudo_em_variaveis.jpg) 
        2. **criando diretorio vendas e backup (caso não existam) e movendo arquivo.csv para vendas**
     ![criando vendas e backup](evidencias/criacao_vendas_backup.jpg)
-    3. **criando relatorio.txt e incluindo data, hora, primeira e ultima data de venda, exibindo e incluindo as 10 primeiras linhas**
+    3. **criando relatorio.txt e incluindo data, hora, primeira e ultima data de venda, e a quantidade de itens diferentes vendidos, exibindo e incluindo as 10 primeiras linhas**
    
    ![criando relatorio.txt](evidencias/criacao_de_relatorio.jpg)
 
