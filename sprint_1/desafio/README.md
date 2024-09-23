@@ -29,7 +29,7 @@ configuramos o mesmo para que durante 4 dias as 15:27 o arquivo.sh criasse o rel
 passado os 4 dias criamos o **consolidador_de_vendas.sh**
 e dentro dele configurei para criar um relatorio_final.txt que junta todos os outros relatorios em um só.
 
-Claro tive varios erros e acertos pois havian coisas que desconheciam, porém com bastante pesquisa consegui finalizar o desafio.
+Claro tive varios erros e acertos pois haviam coisas que desconheciam, porém com bastante pesquisa consegui finalizar o desafio.
 
 ### obervação
 
