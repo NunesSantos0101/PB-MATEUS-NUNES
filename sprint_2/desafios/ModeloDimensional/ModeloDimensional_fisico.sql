@@ -1,9 +1,10 @@
---- MODELO RELACIONAL
+------ MODELO DIMENSINAL
+
 
 
 -- CRIANDO TABELAS
 
-CREATE TABLE Clientes (
+CREATE TABLE TbClientes (
     idCliente INT PRIMARY KEY,
     nomeCliente VARCHAR(255),
     cidadeCliente VARCHAR(255),
@@ -13,7 +14,7 @@ CREATE TABLE Clientes (
 
 
 
-CREATE TABLE Carros (
+CREATE TABLE TbCarros (
     idCarro INT PRIMARY KEY,
     classiCarro VARCHAR(255),
     marcaCarro VARCHAR(255),
@@ -21,40 +22,49 @@ CREATE TABLE Carros (
     anoCarro INT,
     kmCarro INT,
     idCombustivel INT,
-    FOREIGN KEY (idCombustivel) REFERENCES Combustivel(idCombustivel)
+    FOREIGN KEY (idCombustivel) REFERENCES TbCombustivel(idCombustivel)
 );
 
-CREATE TABLE Combustivel (
+CREATE TABLE TbCombustivel (
     idCombustivel INT PRIMARY KEY,
     tipoCombustivel VARCHAR(255)
 );
 
-CREATE TABLE Vendedores (
+CREATE TABLE TbVendedores (
     idVendedor INT PRIMARY KEY,
     nomeVendedor VARCHAR(255),
     sexoVendedor INT,
     estadoVendedor VARCHAR(255)
 );
 
-CREATE TABLE Locacao (
+CREATE TABLE TbEntrega (
+    idLocacao INT PRIMARY KEY,
+     dataEntrega DATE,
+    horaEntrega TIME
+
+);
+
+
+CREATE TABLE TbLocacao (
     idLocacao INT PRIMARY KEY,
     idCliente INT,
     idCarro INT,
     idVendedor INT,
-    dataLocacao DATE,
-    horaLocacao TIME,
     qtdDiaria INT,
     vlrDiaria DECIMAL(10, 2),
-    dataEntrega DATE,
-    horaEntrega TIME,
-    FOREIGN KEY (idCliente) REFERENCES Clientes(idCliente),
-    FOREIGN KEY (idCarro) REFERENCES Carros(idCarro),
-    FOREIGN KEY (idVendedor) REFERENCES Vendedores(idVendedor)
+    dataLocacao DATE,
+    horaLocacao TIME,
+    FOREIGN KEY (idCliente) REFERENCES TbClientes(idCliente),
+    FOREIGN KEY (idCarro) REFERENCES TbCarros(idCarro),
+    FOREIGN KEY (idVendedor) REFERENCES TbVendedores(idVendedor)
+    FOREIGN KEY (idLocacao) REFERENCES TbEntrega(idLocacao)
 );
+
+
 
 -- INSERINDO DADOS NAS TABELAS
 
-INSERT INTO Clientes 
+INSERT INTO TbClientes 
 SELECT DISTINCT 
 	idCliente,
 	nomeCliente, 
@@ -64,7 +74,7 @@ SELECT DISTINCT
 FROM Tb_Locacao;
 
 
-INSERT INTO Carros 
+INSERT INTO TbCarros 
 SELECT 
 	idCarro,
 	classiCarro, 
@@ -75,13 +85,13 @@ SELECT
 FROM Tb_Locacao
 GROUP BY idCarro
 
-INSERT INTO Combustivel 
+INSERT INTO TbCombustivel 
 SELECT DISTINCT 
 	idCombustivel, 
 	tipoCombustivel
 FROM Tb_Locacao;
 
-INSERT INTO Vendedores 
+INSERT INTO TbVendedores 
 SELECT DISTINCT 
 	idVendedor, 
 	nomeVendedor, 
@@ -89,16 +99,23 @@ SELECT DISTINCT
 	estadoVendedor
 FROM Tb_Locacao;
 
-
-INSERT INTO Locacao 
-SELECT idLocacao,
-idCliente, 
-idCarro, 
-idVendedor, 
-qtdDiaria,
-vlrDiaria,
-dataLocacao,
-horaLocacao,
-dataEntrega,
-horaEntrega
+INSERT INTO TbEntrega 
+SELECT DISTINCT 
+	  idLocacao,
+      dataEntrega,
+      horaEntrega
 FROM Tb_Locacao;
+
+
+INSERT INTO TbLocacao 
+SELECT idLocacao,
+	idCliente, 
+	idCarro, 
+	idVendedor, 
+	qtdDiaria,
+	vlrDiaria,
+	dataLocacao,
+	horaLocacao
+
+FROM Tb_Locacao;
+
