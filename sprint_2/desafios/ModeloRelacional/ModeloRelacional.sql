@@ -67,8 +67,8 @@ SELECT
 	classiCarro, 
 	marcaCarro, modeloCarro, 
 	anoCarro, 
-	idCombustivel,
-	kmCarro
+	kmCarro,
+	idCombustivel
 FROM Tb_Locacao
 GROUP BY idCarro
 
