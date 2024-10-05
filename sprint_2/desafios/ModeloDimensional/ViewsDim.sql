@@ -46,13 +46,13 @@ FROM Locacao
 
 CREATE VIEW dimLocacao AS
 SELECT
-    idLocacao,
-    dataLocacao,
-    horaLocacao,
-    qtdDiaria,
-    vlrDiaria,
-    idCliente,
+ 	idCliente,
     idCarro,
     idVendedor
+    qtdDiaria,
+    vlrDiaria,
+    dataLocacao,
+    horaLocacao
+  
 FROM
-    Locacao;
+    TbLocacao;
