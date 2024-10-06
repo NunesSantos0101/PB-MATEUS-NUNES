@@ -130,6 +130,8 @@ logo depois de ter criado as tabelas eu inserir dados na mesma
 
 ### Modelo dimensional
 
+Em seguida fiz o modelo fisico dimensional
+
 1. **Criando tabelas**
    `````SQL
         --CRIANDO TABELAS
@@ -261,6 +263,7 @@ logo depois de ter criado as tabelas eu inserir dados na mesma
 
 
 ### MODELOS RELACIONAL E DIMENSIONAL LOGICOS
+
 
 Por fim  temos os modelos logicos gerados no Dbeaver a partir dos modelos fisicos
 tanto do relacional como do dimensional
