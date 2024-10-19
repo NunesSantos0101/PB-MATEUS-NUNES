@@ -99,33 +99,32 @@ Fiz:
 ![tabela](/sprint_3/evidencias/desafio/10_calculo_dataset_01.png)
 
 
+
 7.1 **criando histograma**
 
-        ````python
+````python
         
-            plt.figure(figsize=(10, 6))
-            plt.bar(total_generos.index, total_generos.values, color='skyblue')
+    plt.figure(figsize=(10, 6))
+    plt.bar(total_generos.index, total_generos.values, color='skyblue')
 
-            # Adicionar rótulos e título
-            plt.xlabel('Gêneros', fontsize=12)
-            plt.ylabel('Frequência', fontsize=12)
-            plt.title('Top 10 Gêneros de Apps', fontsize=16)
+    # Adicionar rótulos e título
+    plt.xlabel('Gêneros', fontsize=12)
+    plt.ylabel('Frequência', fontsize=12)
+    plt.title('Top 10 Gêneros de Apps', fontsize=16)
 
-            plt.plot(total_generos.index, total_generos.values, color='blue', marker='o', linestyle='--')
+    plt.plot(total_generos.index, total_generos.values, color='blue', marker='o', linestyle='--')
 
-            # Mostrar os valores em cima das barras
-            for index, value in enumerate(total_generos):
-                plt.text(index, value, str(value), va='bottom')
-
-
-            plt.xticks(rotation=45)
-
-            plt.show()
-
-![histograma](grafico_calculodataset1.png)
+    # Mostrar os valores em cima das barras
+    for index, value in enumerate(total_generos):
+        plt.text(index, value, str(value), va='bottom')
 
 
-3. **Criando segundo calculo do dataset com gráfico de linhas**
+    plt.xticks(rotation=45)
+
+    plt.show()
+
+
+
 
 
 
