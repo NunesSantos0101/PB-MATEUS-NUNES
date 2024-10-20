@@ -102,30 +102,23 @@ Fiz:
 
 7.1 **criando histograma**
 
-````python
-        
-    plt.figure(figsize=(10, 6))
-    plt.bar(total_generos.index, total_generos.values, color='skyblue')
+![criando histograma](/sprint_3/evidencias/desafio/11_criando_histograma.png)
 
-    # Adicionar rótulos e título
-    plt.xlabel('Gêneros', fontsize=12)
-    plt.ylabel('Frequência', fontsize=12)
-    plt.title('Top 10 Gêneros de Apps', fontsize=16)
+### Histograma
 
-    plt.plot(total_generos.index, total_generos.values, color='blue', marker='o', linestyle='--')
+![histograma](grafico_calculodataset1.png)
 
-    # Mostrar os valores em cima das barras
-    for index, value in enumerate(total_generos):
-        plt.text(index, value, str(value), va='bottom')
+7.2 **Criando segundo calculo com gráfico de linhas**
 
+![segundo calculo](/sprint_3/evidencias/desafio/13_calculo_dataset_02.png)
 
-    plt.xticks(rotation=45)
+7.3 **Criando o gráfico de linha**
 
-    plt.show()
+![gráfico](/sprint_3/evidencias/desafio/14_criando_grafico_de_linha.png)    
 
+### Gráfico
 
-
-
+![gráfico](/sprint_3/evidencias/desafio/15_grafico.png)
 
 
 
