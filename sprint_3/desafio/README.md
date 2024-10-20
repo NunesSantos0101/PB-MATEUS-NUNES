@@ -110,7 +110,8 @@ Fiz:
 
 7.2 **Criando segundo calculo com gráfico de linhas**
 
-![segundo calculo](/sprint_3/evidencias/desafio/13_calculo_dataset_02.png)
+![criando calculo](/sprint_3/evidencias/desafio/13_calculo_dataset_02.png)
+
 
 7.3 **Criando o gráfico de linha**
 
