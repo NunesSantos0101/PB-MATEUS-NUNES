@@ -2,7 +2,7 @@
 
 Durante a Sprint 3 foram abordados importantes conceitos da linguagem **python** onde aprendemos conceitos basicos e intermediarios 
 de extrema importancia para a area de dados.
-pude conhecer melhor da ferramenta **Jupyter** a qual vi que é deveras importate também no conceito da área de dados, a primeira vista foi dificil mexer na mesma pois não tinha familiaridade, porém com o tempo fui me adaptando. Além do exercicios que foram essencial para fixar os conceitos de logica de programação além funçoes de POO entre outras coias.
+pude conhecer melhor da ferramenta **Jupyter** a qual vi que é deveras importate também no conceito da área de dados, a primeira vista foi dificil mexer na mesma pois não tinha familiaridade, porém com o tempo fui me adaptando. Além do exercicios que foram essencial para fixar os conceitos de logica de programação além funções e POO entre outras coias.
 E o desafio abordaram também coisas as quais não vimos no curso, como as bibliotecas
 
 - PANDAS
