@@ -19,6 +19,8 @@ Fiz:
 
         limpando_linhas_duplicadas
 
+![imagem](/sprint_3/evidencias/desafio/02_tabelasemduplicates.png)
+
 2. **A criação do gráfico de barras contendo os 5 apps mais intalados**
 
 
