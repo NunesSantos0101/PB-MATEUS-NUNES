@@ -6,4 +6,3 @@ COPY hash.py .
 
 CMD ["python", "hash.py"]
 
-#coman
