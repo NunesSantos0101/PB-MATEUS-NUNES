@@ -12,4 +12,4 @@ No caso eu reiniciaria um dos container parados no meu ambiente seguindo este co
 
 **docker start a538b7621038**
 
-que reiniciaria meu container da imagem carguru-images
+que reiniciaria meu container da imagem carguru-images a partir do id
