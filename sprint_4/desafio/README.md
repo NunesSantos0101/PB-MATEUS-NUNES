@@ -12,7 +12,7 @@ logo em seguida fiz as seguintes etapas
 
 2. **logo em seguida criei imagem carguru**
 
-![imagem carguru](/sprint_4/evidencias/desafio/carguru/imagem_carguru.png)
+![imagem carguru](/sprint_4/evidencias/desafio/carguru/images-carguru.png)
 
 3. **depois de tudo isso rodei container docker carguru**
 
@@ -39,9 +39,9 @@ logo em seguida fiz as seguintes etapas
 
 3. **criei a imagem mascarar-dados a partir do script**
 
-![imagem mascarar-dados](/sprint_4/evidencias/desafio/hash/images_hash.png)
+![imagem mascarar-dados](/sprint_4/evidencias/desafio/hash/mascarar_dados_images.png)
 
-4. **criei e reodei o container a partir da imagem criada**
+4. **criei e rodei o container no modo interativo a partir da imagem criada**
 
 ![container](/sprint_4/evidencias/desafio/hash/container_hash.png)
 
