@@ -1,7 +1,7 @@
 <table>
   <tr>
     <td>
-      <img src="https://i.postimg.cc/MZQ8ZJj9/Design-sem-nome.png" alt="Foto de Mateus Nunes" width="300" style="border-radius: 50%;">
+      <img src="https://i.postimg.cc/KzTsbFsL/image.png" alt="Foto de Mateus Nunes" width="300">
     </td>
     <td>
       <h2>👋 Olá, Sou Mateus Nunes</h2>
