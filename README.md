@@ -47,9 +47,9 @@ Tenho experiência com as seguintes tecnologias e ferramentas:
 ## 🛠️ Áreas de Foco
 
 - **Engenharia de Dados e/ou ciência de dados**:
-  - Processamento de dados em larga escala utilizando ![Spark](https://img.shields.io/badge/-Apache%20Spark-E25A1C?style=flat-square&logo=apachespark&logoColor=white)
+  - Apredendo Processamento de dados em larga escala utilizando ![Spark](https://img.shields.io/badge/-Apache%20Spark-E25A1C?style=flat-square&logo=apachespark&logoColor=white)
 .
-  - Manipulação e análise de dados com bibliotecas especializadas como ![Pandas](https://img.shields.io/badge/-Pandas-150458?style=flat-square&logo=pandas&logoColor=white)
+  - conhecimendo em Manipulação e análise de dados com bibliotecas especializadas como ![Pandas](https://img.shields.io/badge/-Pandas-150458?style=flat-square&logo=pandas&logoColor=white)
  e ![NumPy](https://img.shields.io/badge/-NumPy-013243?style=flat-square&logo=numpy&logoColor=white)
 .
   - Apredendo a construir modelos de aprendizado de máquina utilizando o ![Scikit-learn](https://img.shields.io/badge/-Scikit%20Learn-F7931E?style=flat-square&logo=scikit-learn&logoColor=white)
