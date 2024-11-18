@@ -19,7 +19,7 @@ Dito isto de modo geral gostei bastante da sprint e veio pra somar, fiquei basta
 
 ## algumas observações
 
-1. como vocês não tem acesso de como foi feito os bucket no s3 durante os exercícios na pasta de evidências encontra-se as [evidencias com imagens](./evidencias/exercicio_aws/) para realização e entendimento como foi feito o bucket no s3 para o exercício
+1. como vocês não tem acesso de como foi feito os bucket no s3 durante os exercícios, na pasta de evidências encontra-se as [evidencias com imagens](./evidencias/exercicio_aws/) para realização e entendimento como foi feito o bucket no s3 para o exercício
 
 2. Estávamos com problemas ao configurar a aws com o repositório local usando as credenciais do IAM, então foi orientado pelo time técnico a ultilizarmos as credencias temporárias.
 
