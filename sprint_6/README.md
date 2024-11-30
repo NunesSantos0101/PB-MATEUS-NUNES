@@ -21,4 +21,8 @@ O primeiro passo  desse desafio foi bem tranquilo, eu estou empolgado nos próxi
 
 ## Algumas observações importantes:
 
-1. uns dos dados fornecidos ultrapassavam os 100MB suportados pelo git hub, então em uma dayli onde tivemos a parcipação do julio, foi perguntado sobre essa questão, o mesmo disse que não tem problema se apagar para não dar problema, diante disso a pasta [data](./desafio/desafio_data-lake/data/), onde estavam os arquivos csv, dentro de [desafio](./desafio/) esta vazia
+#### 1. uns dos dados fornecidos ultrapassavam os 100MB suportados pelo git hub, então em uma dayli onde tivemos a parcipação do julio, foi perguntado sobre essa questão, o mesmo disse que não tem problema se apagar para não dar problema, diante disso a pasta [data](./desafio/desafio_data-lake/data/), onde estavam os arquivos csv, esta apenas o arquivo series.csv.
+
+#### 2. dentro do diretorio existe outro chamado **data** onde foram armazenados os arquivos csv, por motivos de organização.
+
+#### 3. dentro do diretorio desafio encontra-se o arquivo **.gitignore** que contém um arquivo .env onde estão as variáveis de ambiente, que foram usadas para armazenar as credencias, por questão de seguança, decidi não enviar.
