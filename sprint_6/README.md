@@ -1,4 +1,4 @@
-# Sprint 5
+# Sprint 6
 Essa sprint abordou varios conteúdos de conceitos básicos do uso de ferramentas da **AWS** como:
 
 - Amazon athena
