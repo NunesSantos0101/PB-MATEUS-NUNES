@@ -44,7 +44,7 @@ Tenho experiência com as seguintes tecnologias e ferramentas:
 
 ---
 
-## 🛠️ Áreas de Focoufdsdgs
+## 🛠️ Áreas de Foco
 
 - **Engenharia de Dados e/ou ciência de dados**:
   - Apredendo Processamento de dados em larga escala utilizando ![Spark](https://img.shields.io/badge/-Apache%20Spark-E25A1C?style=flat-square&logo=apachespark&logoColor=white)
