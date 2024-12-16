@@ -12,3 +12,9 @@ que foram importante tanto para resolução do desafio como dos exercicios propo
 Falando de modo geral, a sprint foi bastante desafiadora, e com muitas dificuldades encontradas, porém com bastanate esforço e desempenho consegui resolver os problemas proposto, estou animado para os próximos desafios que irei enfrentar, até a próxima!!
 
 ## links para as pastas [certificados](./certificados/) e [evidências](./evidencias/)
+
+
+
+## Algumas observações importantes:
+
+#### 1. como vocês não tem acesso de como foi feito no console da AWS durante o exercício do aws glue, na pasta de evidências encontra-se as  evidências com imagens do exercicio [aws glue](./evidencias/exercicios/aws_glue/) para realização e entendimento como foi feito no console da AWS durante esse exercício
