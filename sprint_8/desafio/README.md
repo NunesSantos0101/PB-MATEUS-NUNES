@@ -137,9 +137,195 @@ como vistos os dois crawler foram um sucesso, agora vamos ver o que cada script 
 1. script job csv
 
     ````python
-    
+            # Importação das bibliotecas necessárias para o Glue e PySpark
+    import sys
+    from awsglue.transforms import *
+    from awsglue.utils import getResolvedOptions
+    from pyspark.context import SparkContext
+    from awsglue.context import GlueContext
+    from awsglue.job import Job
+    from pyspark.sql.types import StructType, StructField, StringType, IntegerType, FloatType
+    from pyspark.sql import functions as F
+    from datetime import datetime
 
 
+    # Inicializando o contexto Spark e Glue
+    args = getResolvedOptions(sys.argv, ['JOB_NAME'])
+    sc = SparkContext()
+    glueContext = GlueContext(sc)
+    spark = glueContext.spark_session
+    job = Job(glueContext)
+    job.init(args['JOB_NAME'], args)
+
+    # Definição do schema para os dados de filmes
+    movies_schema = StructType([
+        StructField("id", StringType(), True),
+        StructField("tituloPincipal", StringType(), True),
+        StructField("tituloOriginal", StringType(), True),
+        StructField("anoLancamento", IntegerType(), True),
+        StructField("tempoMinutos", IntegerType(), True),
+        StructField("genero", StringType(), True),
+        StructField("notaMedia", FloatType(), True),
+        StructField("numeroVotos", IntegerType(), True),
+        StructField("generoArtista", StringType(), True),
+        StructField("personagem", StringType(), True),
+        StructField("nomeArtista", StringType(), True),
+        StructField("anoNascimento", IntegerType(), True),
+        StructField("anoFalecimento", IntegerType(), True),
+        StructField("profissao", StringType(), True),
+        StructField("titulosMaisConhecidos", StringType(), True)
+    ])
+
+    # Definição do schema para os dados de séries
+    series_schema = StructType([
+        StructField("id", StringType(), True),
+        StructField("tituloPincipal", StringType(), True),
+        StructField("tituloOriginal", StringType(), True),
+        StructField("anoLancamento", IntegerType(), True),
+        StructField("anoTermino", IntegerType(), True),
+        StructField("tempoMinutos", IntegerType(), True),
+        StructField("genero", StringType(), True),
+        StructField("notaMedia", FloatType(), True),
+        StructField("numeroVotos", IntegerType(), True),
+        StructField("generoArtista", StringType(), True),
+        StructField("personagem", StringType(), True),
+        StructField("nomeArtista", StringType(), True),
+        StructField("anoNascimento", IntegerType(), True),
+        StructField("anoFalecimento", IntegerType(), True),
+        StructField("profissao", StringType(), True),
+        StructField("titulosMaisConhecidos", StringType(), True)
+    ])
+
+    # Obtendo a data atual para gerar o caminho dinâmico de saída
+    current_date = datetime.now().strftime('%Y-%m-%d')
+
+    # Caminhos para o raw zone (dados brutos) e trusted zone (dados tratados) no S3
+    RAW_ZONE_PATH = "s3://data-lake-mateus/Raw/Local/CSV"
+    TRUSTED_ZONE_PATH = "s3://data-lake-mateus/Trusted/Local/PARQUET"
+
+    # Função para processar os dados
+    def process_data(entity, schema):
+        # Construção do caminho para o arquivo de dados raw (bruto) com base na entidade (Movies ou Series)
+        raw_path = f"{RAW_ZONE_PATH}/{entity}/2024/11/28/{entity.lower()}.csv"
+        # Construção do caminho para salvar os dados processados (trusted)
+        trusted_path = f"{TRUSTED_ZONE_PATH}/{entity}/{current_date}/"
+        
+        # Leitura do arquivo CSV com os dados, aplicando o schema para estruturar os dados
+        df_raw = spark.read.option("delimiter", "|").csv(raw_path, header=True, schema=schema)
+        
+        # Limpeza dos dados: remoção de duplicatas e valores nulos
+        df_clean = (
+            df_raw
+            .dropDuplicates()  # Remove duplicatas
+            .dropna(how="all")  # Remove linhas com todos os valores nulos
+            .select([  # Processamento de cada coluna para garantir que valores inválidos sejam convertidos para None
+                F.when(F.col(col) == "\\N", None).otherwise(F.col(col)).alias(col)  # Substitui "\\N" por None
+                for col in df_raw.columns
+            ])
+            .withColumn("id", F.regexp_replace(F.col("id"), "[^0-9]", "").cast(IntegerType()))  # Limpeza do campo "id" removendo caracteres não numéricos e convertendo para inteiro
+            .withColumn(  # Processamento da coluna "titulosMaisConhecidos" para tratar a string separada por vírgulas
+                "titulosMaisConhecidos",
+                F.when(
+                    F.col("titulosMaisConhecidos").isNotNull(),  # Verifica se a coluna não é nula
+                    F.concat_ws(
+                        ",",  # Junta os valores com uma vírgula
+                        F.expr("transform(split(titulosMaisConhecidos, ','), x -> cast(regexp_replace(x, '[^0-9]', '') as int))")  # Converte os valores para inteiros e remove caracteres não numéricos
+                    )
+                ).otherwise(None)  # Se for nulo, deixa como nulo
+            )
+        )
+        
+        # Salvando os dados limpos no formato Parquet na trusted zone do S3
+        df_clean.write.mode("overwrite").format("parquet").save(trusted_path)
+        print(f"Dados do {entity} processados e salvos em: {trusted_path}")
+
+    # Processando os dados de filmes e séries
+    process_data("Movies", movies_schema)  # Processa os dados de filmes com o schema de filmes
+    process_data("Series", series_schema)  # Processa os dados de séries com o schema de séries
+
+    # Finaliza o job
+    job.commit()
+
+
+
+
+
+
+
+
+2. script job json
+
+    ````python
+        # Importação de bibliotecas necessárias para o AWS Glue e PySpark
+    import sys
+    from awsglue.transforms import *
+    from awsglue.utils import getResolvedOptions
+    from pyspark.context import SparkContext
+    from awsglue.context import GlueContext
+    from awsglue.job import Job
+    from pyspark.sql.types import StructType, StructField, IntegerType, StringType, ArrayType, LongType
+    from pyspark.sql.functions import format_number, col, explode
+    from datetime import datetime
+
+    # @params: [JOB_NAME]
+    # Captura o nome do job que foi passado como argumento
+    args = getResolvedOptions(sys.argv, ['JOB_NAME'])
+
+    # Inicialização do contexto Spark e Glue
+    sc = SparkContext()
+    glueContext = GlueContext(sc)
+    spark = glueContext.spark_session
+    job = Job(glueContext)
+    job.init(args['JOB_NAME'], args)
+
+    # Definição do schema para estruturar os dados de entrada
+    schema = StructType([
+        StructField("id", IntegerType(), True),  # ID do filme
+        StructField("titulo", StringType(), True),  # Título do filme
+        StructField("ano_lancamento", StringType(), True),  # Ano de lançamento
+        StructField("estudio", StringType(), True),  # Estúdio responsável pelo filme
+        StructField("genero", ArrayType(StringType()), True),  # Gêneros do filme em formato de array
+        StructField("diretores", StringType(), True),  # Diretores do filme
+        StructField("orcamento", LongType(), True),  # Orçamento do filme
+        StructField("arrecadacao", LongType(), True)  # Arrecadação do filme
+    ])
+
+    # Data atual para uso no caminho de saída
+    current_date = datetime.now().strftime('%Y-%m-%d')
+
+    # Caminhos para a zona de dados brutos (RAW) e zona confiável (TRUSTED) no S3
+    RAW_ZONE_PATH = "s3://data-lake-mateus/Raw/TMDB/JSON/2024/12/15/"
+    TRUSTED_ZONE_PATH = "s3://data-lake-mateus/Trusted/TMDB/PARQUET"
+
+    # Função para processar os dados
+    def process_data(schema):
+        # Caminho para os arquivos JSON de entrada
+        raw_path = f"{RAW_ZONE_PATH}*.json"
+        # Caminho para salvar os dados processados
+        trusted_path = f"{TRUSTED_ZONE_PATH}/{current_date}/"
+
+        # Leitura dos dados JSON com schema definido, considerando que o arquivo sao multiline
+        df = spark.read.option("multiline", "true").schema(schema).json(raw_path)
+
+        # Explosão da coluna "genero", que é um array, transformando cada elemento em uma linha
+        df_exploded = df.withColumn("genero_nome", explode(col("genero"))).drop("genero")
+
+        # Formatação das colunas "orcamento" e "arrecadacao" para exibir valores sem casas decimais
+        df_formatted = df_exploded.withColumn("orcamento", format_number(col("orcamento"), 0)) \
+                                .withColumn("arrecadacao", format_number(col("arrecadacao"), 0))
+
+        # Reorganização das colunas na ordem desejada
+        column_order = ["id", "titulo", "ano_lancamento", "estudio", "diretores", "genero_nome", "orcamento", "arrecadacao"]
+        df_final = df_formatted.select(*column_order)
+
+        # Escrita dos dados processados no formato Parquet na zona confiável do S3
+        df_final.write.mode("overwrite").format("parquet").save(trusted_path)
+
+    # Chamando a função para processar os dados
+    process_data(schema)
+
+    # Finalização do job
+    job.commit()
 
 
 
